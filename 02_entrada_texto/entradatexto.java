@@ -1,4 +1,4 @@
-class entradatexto{
+class EntradaTexto{
 
     //cuerpo del programa o de la clase
 
