@@ -45,12 +45,12 @@ class EstructuradeDatos{
 
 
         //variables
-        int edad, opcion, socio, numbinario, total;
+        int edad, opcion, socio, numbinario, total, su, b;
         int numerototal = 0;
         int positivos = 0;
         int negativos = 0;
         double precio, bono;
-        char letras;
+        char letras, operacion;
         long factorial=1;
         int num;
         float precios = 0;
@@ -58,6 +58,7 @@ class EstructuradeDatos{
         int cantidad = 0;
         String binario = "",nombre;
         int opciones=0;
+        int n=0;
 
         
        
@@ -160,8 +161,7 @@ class EstructuradeDatos{
                 System.out.println("El numero convertirdo a binario es: " + binario);
                 break;
                
-                case 3:
-                //TAREA
+                case 3: //TAREA *****************************************************
                 System.out.println ("Introduzca el tipo de temperatura a convertir: C, F o k");
 			String s = sc.next().trim();
 			if ("c".equalsIgnoreCase(s)) {
@@ -233,7 +233,7 @@ class EstructuradeDatos{
 
                 break;
 
-                case 6:// tarea
+                case 6:// tarea ****************************************************
                 
                    do{
                     System.out.println();
@@ -348,8 +348,12 @@ class EstructuradeDatos{
                   break;
                   
                 case 7: 
+                for(n = 1; n<=10; n++){
+                    System.out.println(n + " " + (n*10)+ " " + (n*100) + " " + (n*1000));
+                }
+                break;
 
-                case 8: //tarea
+                case 8: //tarea *****************************************
                 System.out.println("Bienvenido a Factorial ");
                 System.out.println("Introduce un numero: ");
                 num = numero.nextInt();
@@ -363,17 +367,160 @@ class EstructuradeDatos{
  
 
                 case 9:
+                /*
+                ESCRIBA UN PROGRAMA QUE LEA EL LADO DE UN CUADRADO Y A CONTINUACIÓN LO IMPRIMA 
+                EN FORMA DE ASTERISCOS SU PROGRAMA DEBERa PODER FUNCIONAR PARA CUADRADOS 
+                DE TODOS TAMAÑOS ENTRE 1 Y 20. 
+                */
 
+                    System.out.println("Cuadrado Magico");
+                    System.out.println("Inserta el numero de lados: ");
+                    n = entrada.nextInt();
 
+                    if( n>= 1 && n <=20){
+                        //se puede imprimir
+                        //aqui tengo las filas
+                        for(int i = 1; i<=n; i++){
+                            //columnas
+                            for(int j = 1; j<=n; j++){
+                                System.out.print("* ");
+
+                            }
+                        System.out.println(" ");
+
+                        }
+                    }else{
+                        System.out.println("Error, el rango debe de ser entre 1 y 20, intente de nuevo");
+                    }
+
+                    break;
                 case 10:
+                System.out.println("Cuadrado Magico Hueco ");
+                System.out.println("Inserta el numero de lados: ");
+                n = entrada.nextInt();
 
-                case 11:
-                //TAREA
-                
+                if( n>= 1 && n <=20){
+                    //se puede imprimir
 
-                case 12:
+                    //imprir la linea superior
+                    for(int i = 0; i < n; i++){
+                        System.out.print(" * ");
+                    }
+                    System.out.println();
+                    //lo de enmedio solo quiero las esquinas
+                    //cuadrado interno
+                    //aqui  las filas
+                    for(int i = 0; i < n-2; i++){
+                        System.out.print(" * ");
+                        //columnas
+                        for(int j = 0; j < n-2; j++){
+                            System.out.print("  ");
+
+                        }
+                    System.out.println("   * ");
+                        
+                    }
+
+                    //imprimir la linea inferior
+                    for(int i = 0; i < n; i++){
+                        System.out.print(" * ");
+                    }
+                    System.out.println();
+                }else{
+                    System.out.println("Error, el rango debe de ser entre 1 y 20, intente de nuevo");
+                }
+
+                break;
+
+                case 11: //TAREA *****************************************************
+                System.out.print("Por favor ingresa un numero: ");
+                n = entrada.nextInt();
+                if(n >= 2 && n <= 30) {
+                    for (int i = 1; i <= 2; i++) {
+                        for (int j = 1; j <= n ; j++) {
+                        System.out.print(" *");
+                            
+                        }
+                        System.out.println("");
+                    }
+                    
+                }else {
+                    System.out.println("Por favor ingrese un numero entre 2 y 30");
+                }
+    
+                break;
+
+                case 12: // tarea ****************************************************
+                try {
+                    System.out.print("Ingresa una cantidad entera: ");
+                    n = entrada.nextInt();
+                } catch (Exception e) {
+                    //En caso que el dato ingresado no sea de tipo entero, se indica el error.
+                    System.out.println("ERROR: se espera dato entero.");
+                }
+                final char simbolo = '*';
+                //primer for
+                for (int i = 0; i < n; ++i) {
+                    System.out.println();
+                    //Utilizamos dos "for" para lograr la forma.
+                    for (int j = 0; j < n-i-1; ++j) {                      
+                        System.out.print(" ");           
+                    }
+                    for (int j = 0; j < 2*i+1; ++j){
+                        System.out.print(simbolo);
+                    }            
+                }
+                //Se utiliza otro grupo de for para lograr el "diamante"
+                for (int j = n-2; j >= 0; --j) {
+                    System.out.println();
+                    for (int i = 0; i < n-j-1; ++i) {
+                        System.out.print(" ");
+                    }
+                    for (int i = 0; i < 2*j+1; ++i) {
+                        System.out.print(simbolo);
+                    }
+                }
+                System.out.println();
+                break;
 
                 case 13:
+                System.out.println("calculadora");
+                System.out.println("ingresar un numero");
+                su= entrada.nextInt();
+                System.out.println("ingresa un segundo numero");
+                b= entrada.nextInt();
+                System.out.println("ingresa el tipode operacion que deseas realizar: (+,  -, *, /)");
+                operacion = entrada.next().charAt(0);
+
+                /*
+                switch
+                
+                */
+                switch(operacion){
+                    case '+' :
+                    resultado = su+b;
+                    System.out.println("la suma es: " + resultado);
+                    break;
+                    case '-' :
+                    resultado = su-b;
+                    System.out.println("la resta es: " + resultado);
+                    break;
+                    case '*' :
+                    resultado = su*b;
+                    System.out.println("la multiplicacion es: " + resultado);
+                    break;
+                    case '/' :
+                    if(b != 0){
+                        resultado = su/b;
+                        System.out.println("la divicion es: " + resultado);
+                        
+                    }else{
+                        System.out.println("no es posible dividir entre 0");
+                    }
+                    break;
+                    default:
+                    System.out.println("operacion no valida");
+                }
 
                 default:
                     System.out.println("Gracias por ver este hermoso programa :");
@@ -381,7 +528,7 @@ class EstructuradeDatos{
 
 
         }
-        //auqi se cierra el do
+        //auqi se cierra  do
     System.out.println("¿deseas repetir el programa? si lo deseas escriba s ");
     /*para recibir la respuesta debe obtener un caracter
     char se utiliza 
