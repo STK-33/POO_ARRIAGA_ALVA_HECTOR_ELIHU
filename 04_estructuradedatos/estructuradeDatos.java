@@ -87,13 +87,12 @@ class EstructuradeDatos{
         System.out.println("14.- Salir");
 
         //condicion switch para el menu
-
         opcion = entrada.nextInt();
-
-
+        
         switch(opcion){
 
             case 1: //problema 1
+            try {
                 System.out.println("Ingresa el Bono A cobrar");
                 bono = entrada.nextDouble();
                 System.out.println("Ingresa la edad");
@@ -134,62 +133,81 @@ class EstructuradeDatos{
                 }
                 System.out.println("Tu edad es de: " + edad);
                 System.out.println("El total a pagar es: " + bono);
+            } catch (Exception e) {
+                
+                System.out.println("ERROR: se espera dato entero.");
+            }
+            
                 break;
 
                 case 2:
-                System.out.println("ingrese un numero positivo entero que dese convertir");
-                numbinario = entrada.nextInt();
-
-                if(numbinario > 0){
-                    /*
-                    Como el algoritmo para convertir un numero decimal en binario
-                    aplicar al numbinario mod 2
-                    */
-                    while(numbinario > 0){
-                        if(numbinario % 2 == 0){
-                            binario = "0" + binario;
-                        }else{
-                            binario = "1" + binario;
+                try {
+                    System.out.println("ingrese un numero positivo entero que dese convertir");
+                    numbinario = entrada.nextInt();
+    
+                    if(numbinario > 0){
+                        /*
+                        Como el algoritmo para convertir un numero decimal en binario
+                        aplicar al numbinario mod 2
+                        */
+                        while(numbinario > 0){
+                            if(numbinario % 2 == 0){
+                                binario = "0" + binario;
+                            }else{
+                                binario = "1" + binario;
+                            }
+                            numbinario = (int)numbinario / 2;
                         }
-                        numbinario = (int)numbinario / 2;
+                    }else if (numbinario == 0){
+                        binario = "0";
+                    }else{
+                        binario = "No se pudo convertir el numero, ingrese solo positivos.";
+                        System.out.println("El numero convertirdo a binario es: " + binario);
                     }
-                }else if (numbinario == 0){
-                    binario = "0";
-                }else{
-                    binario = "No se pudo convertir el numero, ingrese solo positivos.";
+                } catch (Exception e) {
+                    
+                    System.out.println("ERROR: se espera dato entero.");
                 }
-                System.out.println("El numero convertirdo a binario es: " + binario);
+               
+               
                 break;
                
                 case 3: //TAREA *****************************************************
-                System.out.println ("Introduzca el tipo de temperatura a convertir: C, F o k");
-			String s = sc.next().trim();
-			if ("c".equalsIgnoreCase(s)) {
-				 // Convertir de Celsius a Fahrenheit
-				 System.out.println ("Introduzca la temperatura en celcius : ..");
-				double db = sc.nextDouble();
-				double db2 = (db * 9 / 5) + 32;
-				 System.out.println ("Temperatura en Fahrenheit :" + db2 + "F");
-			} else if ("f".equalsIgnoreCase(s)) {
-				 // Convertir Fahrenheit a Celsius
-				 System.out.println ("Introduzca la temperatura en Fahrenheit : ..");
-				double db = sc.nextDouble();
-				double db2 = (db - 32) * 5 / 9;
-				 System.out.println ("Temperatura en Celsius :" + Math.round (db2) + "C");
-			}else if ("k".equalsIgnoreCase(s)) {
-                // Convertir Celsius a kelvin
-                System.out.println ("Introduzca la temperatura en celsius : ..");
-               double db = sc.nextDouble();
-               double db2 = (db + 273.15);
-                System.out.println ("Temperatura en kelvin :" + Math.round (db2) + "k");
-            }else if("exit".equalsIgnoreCase(s)){
-				break;
-			}
+                try {
+                    System.out.println ("Introduzca el tipo de temperatura a convertir: C, F o k");
+                    String s = sc.next().trim();
+                    if ("c".equalsIgnoreCase(s)) {
+                         // Convertir de Celsius a Fahrenheit
+                         System.out.println ("Introduzca la temperatura en celcius : ..");
+                        double db = sc.nextDouble();
+                        double db2 = (db * 9 / 5) + 32;
+                         System.out.println ("Temperatura en Fahrenheit :" + db2 + "F");
+                    } else if ("f".equalsIgnoreCase(s)) {
+                         // Convertir Fahrenheit a Celsius
+                         System.out.println ("Introduzca la temperatura en Fahrenheit : ..");
+                        double db = sc.nextDouble();
+                        double db2 = (db - 32) * 5 / 9;
+                         System.out.println ("Temperatura en Celsius :" + Math.round (db2) + "C");
+                    }else if ("k".equalsIgnoreCase(s)) {
+                        // Convertir Celsius a kelvin
+                        System.out.println ("Introduzca la temperatura en celsius : ..");
+                       double db = sc.nextDouble();
+                       double db2 = (db + 273.15);
+                        System.out.println ("Temperatura en kelvin :" + Math.round (db2) + "k");
+                    }else if("exit".equalsIgnoreCase(s)){
+                        break;
+                    }
+                } catch (Exception e) {
+                    
+                    System.out.println("ERROR: se espera dato entero.");
+                }
+                
             break;
 
 
                 case 4:
-                System.out.println("inserte ¿cuantos numeros va a ingresar?");
+                try {
+                    System.out.println("inserte ¿cuantos numeros va a ingresar?");
                 total = entrada.nextInt();
 
                 do{
@@ -213,28 +231,38 @@ class EstructuradeDatos{
                 }while(total != 0);
                 System.out.println("el total de positivo es: "+ positivos);
                 System.out.println("el total de positivo es: "+ negativos);
+                } catch (Exception e) {
+                   
+                    System.out.println("ERROR: se espera dato entero.");
+                }
+                
 
                 break;
 
                 case 5:
-                System.out.println("¿cuantos elementos vas a ingresar?");
-                total = entrada.nextInt();
-
-                for(int i = 1; i <= total; i++){
-                    System.out.println("¿ingresa el precio del producto?");
-                    precios = entrada.nextFloat();
-                    System.out.println("¿ingresa la cantidad del producto?");
-                    cantidad = entrada.nextInt();
-
-                    resultado = precios * cantidad; 
+                try {
+                    System.out.println("¿cuantos elementos vas a ingresar?");
+                    total = entrada.nextInt();
+    
+                    for(int i = 1; i <= total; i++){
+                        System.out.println("¿ingresa el precio del producto?");
+                        precios = entrada.nextFloat();
+                        System.out.println("¿ingresa la cantidad del producto?");
+                        cantidad = entrada.nextInt();
+    
+                        resultado = precios * cantidad; 
+                    }
+    
+                    System.out.println("el resultado es: " + resultado);
+                } catch (Exception e) {
+                  
+                    System.out.println("ERROR: se espera dato entero.");
                 }
-
-                System.out.println("el resultado es: " + resultado);
+               
 
                 break;
 
                 case 6:// tarea ****************************************************
-                
                    do{
                     System.out.println();
                     System.out.println("BIENVENIDO AL PROGRAMA AREA DE FIGURAS");
@@ -348,13 +376,22 @@ class EstructuradeDatos{
                   break;
                   
                 case 7: 
-                for(n = 1; n<=10; n++){
-                    System.out.println(n + " " + (n*10)+ " " + (n*100) + " " + (n*1000));
+                try {
+                    System.out.print("Ingresa una cantidad entera: ");
+                    n = entrada.nextInt();
+                    for(n = 1; n<=10; n++){
+                        System.out.println(n + " " + (n*10)+ " " + (n*100) + " " + (n*1000));
+                    }
+                } catch (Exception e) {
+                   
+                    System.out.println("ERROR: se espera dato entero.");
                 }
+               
                 break;
 
                 case 8: //tarea *****************************************
-                System.out.println("Bienvenido a Factorial ");
+                try {
+                    System.out.println("Bienvenido a Factorial ");
                 System.out.println("Introduce un numero: ");
                 num = numero.nextInt();
 
@@ -363,6 +400,11 @@ class EstructuradeDatos{
                     
                 }
                 System.out.println("El factorial de " + num + " es: " + factorial);
+                } catch (Exception e) {
+                    //En caso que el dato ingresado no sea de tipo entero, se indica el error.
+                    System.out.println("ERROR: se espera dato entero.");
+                }
+                
                 break;
  
 
@@ -372,7 +414,7 @@ class EstructuradeDatos{
                 EN FORMA DE ASTERISCOS SU PROGRAMA DEBERa PODER FUNCIONAR PARA CUADRADOS 
                 DE TODOS TAMAÑOS ENTRE 1 Y 20. 
                 */
-
+                try {
                     System.out.println("Cuadrado Magico");
                     System.out.println("Inserta el numero de lados: ");
                     n = entrada.nextInt();
@@ -393,9 +435,15 @@ class EstructuradeDatos{
                         System.out.println("Error, el rango debe de ser entre 1 y 20, intente de nuevo");
                     }
 
+                } catch (Exception e) {
+                    //En caso que el dato ingresado no sea de tipo entero, se indica el error.
+                    System.out.println("ERROR: se espera dato entero.");
+                }    
+                   
                     break;
                 case 10:
-                System.out.println("Cuadrado Magico Hueco ");
+                try {
+                    System.out.println("Cuadrado Magico Hueco ");
                 System.out.println("Inserta el numero de lados: ");
                 n = entrada.nextInt();
 
@@ -429,24 +477,35 @@ class EstructuradeDatos{
                 }else{
                     System.out.println("Error, el rango debe de ser entre 1 y 20, intente de nuevo");
                 }
+                } catch (Exception e) {
+                    //En caso que el dato ingresado no sea de tipo entero, se indica el error.
+                    System.out.println("ERROR: se espera dato entero.");
+                }
+               
 
                 break;
 
                 case 11: //TAREA *****************************************************
-                System.out.print("Por favor ingresa un numero: ");
-                n = entrada.nextInt();
-                if(n >= 2 && n <= 30) {
-                    for (int i = 1; i <= 2; i++) {
-                        for (int j = 1; j <= n ; j++) {
-                        System.out.print(" *");
-                            
+                try {
+                    System.out.print("Por favor ingresa un numero: ");
+                    n = entrada.nextInt();
+                    if(n >= 2 && n <= 30) {
+                        for (int i = 1; i <= 2; i++) {
+                            for (int j = 1; j <= n ; j++) {
+                            System.out.print(" *");
+                                
+                            }
+                            System.out.println("");
                         }
-                        System.out.println("");
+                        
+                    }else {
+                        System.out.println("Por favor ingrese un numero entre 2 y 30");
                     }
-                    
-                }else {
-                    System.out.println("Por favor ingrese un numero entre 2 y 30");
+                } catch (Exception e) {
+                    //En caso que el dato ingresado no sea de tipo entero, se indica el error.
+                    System.out.println("ERROR: se espera dato entero.");
                 }
+                
     
                 break;
 
@@ -484,7 +543,9 @@ class EstructuradeDatos{
                 break;
 
                 case 13:
+               
                 System.out.println("calculadora");
+                try {
                 System.out.println("ingresar un numero");
                 su= entrada.nextInt();
                 System.out.println("ingresa un segundo numero");
@@ -497,6 +558,8 @@ class EstructuradeDatos{
                 
                 */
                 switch(operacion){
+                    
+                    
                     case '+' :
                     resultado = su+b;
                     System.out.println("la suma es: " + resultado);
@@ -521,6 +584,11 @@ class EstructuradeDatos{
                     default:
                     System.out.println("operacion no valida");
                 }
+                } catch (Exception e) {
+                    //En caso que el dato ingresado no sea de tipo entero, se indica el error.
+                    System.out.println("ERROR: se espera dato entero.");
+                }
+               break;
 
                 default:
                     System.out.println("Gracias por ver este hermoso programa :");
@@ -528,6 +596,7 @@ class EstructuradeDatos{
 
 
         }
+    
         //auqi se cierra  do
     System.out.println("¿deseas repetir el programa? si lo deseas escriba s ");
     /*para recibir la respuesta debe obtener un caracter
