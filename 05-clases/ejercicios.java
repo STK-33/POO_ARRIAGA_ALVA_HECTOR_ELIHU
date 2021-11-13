@@ -197,11 +197,11 @@ public class ejercicios {
                     System.out.print("*");
                 }
                 System.out.println();
-
+            break;
             }
             // tarea salir de ese bucle infinito :3 que se quiebren la cabezita un ratito
         }while(m==0);
-
+       
     }
     public void ejercicio4(){
      /*
@@ -220,10 +220,46 @@ public class ejercicios {
         ***
         ///
         ***
-        
-        
-        
         */
+        int n;
+        
+        System.out.println("Ingrese el numero que desea que tenga  el cuadro: ");
+            n = entrada.nextInt();
+
+            if( n<0 || n>30){
+                System.out.println("El cuadro no acepta ni negativos ni mayores a 30");
+            }else{
+               for(int i = 0; i< 1; i++){
+                    System.out.print("");
+                    for(int j = 0; j < n; j++){
+                         
+                    System.out.print("*");
+                    }
+                   System.out.println("");
+                }
+
+                for(int i = 0; i< 1; i++){
+                    System.out.print("");
+                    for(int j = 0; j < n; j++){
+                         
+                    System.out.print("/");
+                    }
+                   System.out.println("");
+                }
+                 
+              
+                for(int i = 0; i< 1; i++){
+                    System.out.print("");
+                    for(int j = 0; j < n; j++){
+                         
+                    System.out.print("*");
+                    }
+                   System.out.println("");
+                }
+            
+            }
+
+                
     }
     
 
