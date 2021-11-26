@@ -1,4 +1,4 @@
-import java.util.*:
+import java.util.*;
 
 public class cadenainvertida{
     Scanner entrada = new Scanner(System.in);
