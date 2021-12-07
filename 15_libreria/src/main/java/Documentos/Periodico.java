@@ -5,10 +5,7 @@
  */
 package Documentos;
 
-/**
- *
- * @author demon
- */
+
 import java.util.*;
 
 public class Periodico extends CLibro {
@@ -22,6 +19,7 @@ public class Periodico extends CLibro {
     
     }
     
+    @SuppressWarnings("SillyAssignment")
     public Periodico(String nombre, String autor, String editorial, float precio) {
         super(nombre, autor, editorial, precio);
         this.fecha2 = fecha2;

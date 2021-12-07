@@ -7,10 +7,7 @@ package Documentos;
 
 import java.util.Scanner;
 
-/**
- *
- * @author demon
- */
+
 public class Revista extends CLibro{
     
     //Tipo_Revista -< espectaculos, chismes, de no tengo idea pq no compro
