@@ -5,28 +5,28 @@
  */
 package Controles;
 
-import Documentos.CPeriodico;
+import Documentos.CRevista;
 import java.util.*;
 import java.io.*;
 
 //implementar la serializacion de los archivos
-class ArchivoP implements Serializable {
+class ArchivoR implements Serializable {
     
     /*
     vamos a crear el objeto que vamos a serializar 
     de la lista de los libros
     */
     
-    ArrayList<CPeriodico> listarecuperada = new ArrayList<>();
+    ArrayList<CRevista> listarecuperada = new ArrayList<>();
     
     //metodo para generar la lectura del archivo
     //metodo que lee el archivo
     @SuppressWarnings({"ConvertToTryWithResources", "UseSpecificCatch", "ImplicitArrayToString"})
-    public ArrayList<CPeriodico> leer(){
+    public ArrayList<CRevista> leer(){
         try{
             //primero tenemos que crear la lectura del buffer de objetos
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("Periodico.txt"));
-            listarecuperada = (ArrayList<CPeriodico>)in.readObject();
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("libro.txt"));
+            listarecuperada = (ArrayList<CRevista>)in.readObject();
             in.close();
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -38,10 +38,10 @@ class ArchivoP implements Serializable {
     //el metodo que serializa
     //metodo que escribe el archivo
     @SuppressWarnings({"ConvertToTryWithResources", "UseSpecificCatch", "ImplicitArrayToString"})
-    void serializar(ArrayList<CPeriodico> listaserializada){
+    void serializar(ArrayList<CRevista> listaserializada){
         try{
             //generar el archivo de salida
-            FileOutputStream salida = new FileOutputStream("Periodico.txt");
+            FileOutputStream salida = new FileOutputStream("Revista.txt");
             //generar la creacion de los objetos
             ObjectOutputStream salidaobjeto = new ObjectOutputStream(salida);
             

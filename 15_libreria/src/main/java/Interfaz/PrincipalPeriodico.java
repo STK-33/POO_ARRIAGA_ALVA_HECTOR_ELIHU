@@ -23,6 +23,7 @@ public class PrincipalPeriodico {
         
         do{
             System.out.println("Bienvenido a la Hemeroteca del tiempo");
+            System.out.println("---ARRIAGA ALVA HECTOR ELIHU ------ GRUPO 15--- ");
             System.out.println("Ingrese la opcion deseada:");
             System.out.println("1.- Agregar nuevo Periodico");
             System.out.println("2.- Consultar Periodico");

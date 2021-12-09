@@ -1,27 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controles;
 
-
+/**
+ *
+ * @author demon
+ */
 //apuntador -> nivel del acceso a la clase, porque esta separada en paquetes
-import Documentos.CPeriodico;
+import Documentos.CRevista;
 import java.util.*;
 import java.io.*;
 
-public class ManipularPeriodico implements Serializable{
+public class ManipularRevista implements Serializable{
     
     //vamos a crear un metodo para agregar varios libros
     
     //los objetos que son capaces de soportar diferentes tipos de dato
     
-    private ArrayList<CPeriodico> listadelibros;
+    private ArrayList<CRevista> listadelibros;
     
     //un objeto para el archivo de mis libros
     
-    private ArchivoP objetoarchivoPeriodico = new ArchivoP();
+    private ArchivoR objetoarchivolibros = new ArchivoR();
     /*
     esta clase u objeto es la que se va a encargar de poder
     crear y leer los archivos del documento de libro
@@ -31,12 +30,12 @@ public class ManipularPeriodico implements Serializable{
     //c create, r read, u update, d delete
     
     @SuppressWarnings("Convert2Diamond")
-    public ManipularPeriodico(){
+    public ManipularRevista(){
         //vamos a cargar la instancia de la lista de los libros
-        listadelibros = new ArrayList<CPeriodico>();
+        listadelibros = new ArrayList<CRevista>();
         //vamos aplicar una sobrecarga al objeto para mandar
         //a llamara su lectura correspondiente del archivo creado
-        listadelibros = objetoarchivoPeriodico.leer();
+        listadelibros = objetoarchivolibros.leer();
     }
     
     //crud
@@ -46,11 +45,11 @@ public class ManipularPeriodico implements Serializable{
         //ciclo para solicitar datos de los libros
         while(resp == 's'){
             //hago un objeto de CLibro y mando a llamar al metodo de los datos
-            CPeriodico objlibro = new CPeriodico();
+            CRevista objlibro = new CRevista();
             objlibro.aceptarDatos();
             //lo agrego al array
             listadelibros.add(objlibro);
-            System.out.println("¿Deseas agregar otro Periodico?");
+            System.out.println("¿Deseas agregar otra Revista?");
             resp = entrada.next().charAt(0);
         }
     }
@@ -62,17 +61,17 @@ public class ManipularPeriodico implements Serializable{
         //si hay libros??
         //y si la lista esta vacia que hago?
         if(listadelibros.isEmpty()){
-            System.out.println("No hay Periodicos agregados");
+            System.out.println("No hay Revistas agregadas");
         }else{
             //no esta vacia
-            System.out.println("Los Periodicos son:");
+            System.out.println("Las Revistas son:");
             //recorrer la lista de los listos
             for(int i = 0; i < listadelibros.size(); i++){
                 //System.out.println("El ID del Libro" + listadelibros.get(i));
-                System.out.println("Nombre del Periodico: " + listadelibros.get(i).getNombre()+"\n");
-                System.out.println("Autor del Periodico: " + listadelibros.get(i).getAutor()+"\n");
-                System.out.println("Fecha de publicacion: " + listadelibros.get(i).getEditorial()+"\n");
-                System.out.println("Precio del Periodico: " + listadelibros.get(i).getPrecio()+"\n");
+                System.out.println("Nombre La Revista: " + listadelibros.get(i).getNombre()+"\n");
+                System.out.println("Autor de la Revista: " + listadelibros.get(i).getAutor()+"\n");
+                System.out.println("Tipo de Revista: " + listadelibros.get(i).getEditorial()+"\n");
+                System.out.println("Precio de la Revista: " + listadelibros.get(i).getPrecio()+"\n");
             }
         }
     }
@@ -93,13 +92,13 @@ public class ManipularPeriodico implements Serializable{
                 pos = i;
                 existe = true;
             }else{
-                System.out.println("Periodico no encontrado. Favor de ponerse en contacto con el admin");
+                System.out.println("Revista no encontrado. Favor de ponerse en contacto con el admin");
             }
         }
         
         if(!existe){
             //porque esta fuera del arreglo o la lista osea no existe
-            System.out.println("No existe registro del Periodico");
+            System.out.println("No existe registro de la revista");
             pos = -1;
         }
         return pos;
@@ -115,17 +114,17 @@ public class ManipularPeriodico implements Serializable{
         String nombreBuscar;
         Scanner entrada = new Scanner(System.in);
         
-        System.out.println("Ingresa el nombre del Periodico que desea buscar");
+        System.out.println("Ingresa el nombre de la revista que desea buscar");
         nombreBuscar = entrada.nextLine();
         
         posbuscar = traePosicion(nombreBuscar);
         
         //visualizo los datos
         
-        System.out.println("Nombre del Periodico: " + listadelibros.get(posbuscar).getNombre());
-        System.out.println("Autor del Periodico: " + listadelibros.get(posbuscar).getAutor());
-        System.out.println("Fecha de publicacion: " + listadelibros.get(posbuscar).getEditorial());
-        System.out.println("Precio del Periodico: " + listadelibros.get(posbuscar).getPrecio());
+        System.out.println("Nombre de la Revista: " + listadelibros.get(posbuscar).getNombre());
+        System.out.println("Autor de la Revista: " + listadelibros.get(posbuscar).getAutor());
+        System.out.println("Tipo de Revista: " + listadelibros.get(posbuscar).getEditorial());
+        System.out.println("Precio de la Revista: " + listadelibros.get(posbuscar).getPrecio());
         
         return posbuscar;
     }
@@ -141,15 +140,15 @@ public class ManipularPeriodico implements Serializable{
         //verificar que lista de libros no este vacia
         
         if(listadelibros.isEmpty()){
-            System.out.println("No hay Periodicos registrados");
+            System.out.println("No hay Revistas registradas");
         }else{
-            System.out.println("Eliminar Periodico ");
+            System.out.println("Borrar Revista");
             posborrar = buscar();
             
             if(posborrar < listadelibros.size()){
                 //si esta dentro de la lista
                 listadelibros.remove(posborrar);
-                System.out.println("Periodico eliminado");
+                System.out.println("Revista eliminada");
             }else{
                 //esta afuera del rango
                 System.out.println("Imposible elminar ese registro");
@@ -171,7 +170,7 @@ public class ManipularPeriodico implements Serializable{
         
         Scanner entrada = new Scanner(System.in);
         
-        System.out.println("Ingresa el nombre del periodico que deseas modificar: ");
+        System.out.println("Ingresa el nombre de la Revista que deseas modificar: ");
         modificar = entrada.nextLine();
         
         
@@ -179,9 +178,9 @@ public class ManipularPeriodico implements Serializable{
             posmodificar = traePosicion(modificar);
             
             //ya se obtuvieron los datos
-            System.out.println("¿Que dato deseas modificar del Periodico?"
+            System.out.println("¿Que dato deseas modificar de la Revista?"
                     + "\n 1.- Autor. "
-                    + "\n 2.- Fecha de publicacion"
+                    + "\n 2.- Tipo de Revista"
                     + "\n 3.- Precio"
                     + "\n");
             
@@ -201,12 +200,12 @@ public class ManipularPeriodico implements Serializable{
                     
                 case 2:
                     //editorial
-                    System.out.println("La Fecha de publicacion es: ");
-                    System.out.println("Fecha de publicacion: " + listadelibros.get(posmodificar).getEditorial());
-                    System.out.println("Ingresa la nueva Fecha");
+                    System.out.println("El tipo de Revista es: ");
+                    System.out.println("Tipo de Revista: " + listadelibros.get(posmodificar).getEditorial());
+                    System.out.println("Ingresa el Tipo de Revista");
                     listadelibros.get(posmodificar).setEditorial(entrada.next());
                     System.out.println("El dato a sido modificado");
-                    System.out.println("Fecha de publicacion: " + listadelibros.get(posmodificar).getEditorial());
+                    System.out.println("Tipo de revista: " + listadelibros.get(posmodificar).getEditorial());
                     
                     break;
                 
@@ -214,7 +213,7 @@ public class ManipularPeriodico implements Serializable{
                     //precio
                     System.out.println("El precio es: ");
                     System.out.println("Precio: " + listadelibros.get(posmodificar).getPrecio());
-                    System.out.println("Ingresa el nuevo precios");
+                    System.out.println("Ingresa el nuevo precio");
                     listadelibros.get(posmodificar).setPrecio(entrada.nextFloat());
                     System.out.println("El dato a sido modificado");
                     System.out.println("Precio: " + listadelibros.get(posmodificar).getPrecio());
@@ -237,24 +236,27 @@ public class ManipularPeriodico implements Serializable{
         getObjetoarchivolibros().serializar(listadelibros);
     }
 
-    public ArrayList<CPeriodico> getListadelibros() {
+    public ArrayList<CRevista> getListadelibros() {
         return listadelibros;
     }
 
-    public void setListadelibros(ArrayList<CPeriodico> listadelibros) {
+    public void setListadelibros(ArrayList<CRevista> listadelibros) {
         this.listadelibros = listadelibros;
     }
 
     @SuppressWarnings("NonPublicExported")
-    public ArchivoP getObjetoarchivolibros() {
-        return objetoarchivoPeriodico;
+    public ArchivoR getObjetoarchivolibros() {
+        return objetoarchivolibros;
     }
 
     @SuppressWarnings("NonPublicExported")
-    public void setObjetoarchivolibros(ArchivoP objetoarchivolibros) {
-        this.objetoarchivoPeriodico = objetoarchivolibros;
+    public void setObjetoarchivolibros(ArchivoR objetoarchivolibros) {
+        this.objetoarchivolibros = objetoarchivolibros;
     }
     
     
     
 }
+
+
+

@@ -13,7 +13,11 @@ import javax.swing.*;
 
 
 public class ventana {
+<<<<<<< HEAD
     
+=======
+     
+>>>>>>> b96e399a8119789e6f44937c38deddf998f2990d
     public static void main(String[] args){
     
         /*

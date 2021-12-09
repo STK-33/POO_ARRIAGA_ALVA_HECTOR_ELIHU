@@ -9,7 +9,7 @@ package Documentos;
 import java.io.*;
 import java.util.*;
 
-public class CPeriodico {
+public class CRevista {
     
     //las variables de un libro
     
@@ -19,11 +19,11 @@ public class CPeriodico {
     private float precio;
     
     
-    public CPeriodico(){
+    public CRevista(){
     
     }
 
-    public CPeriodico(String nombre, String autor, String editorial, float precio) {
+    public CRevista(String nombre, String autor, String editorial, float precio) {
         this.nombre = nombre;
         this.autor = autor;
         this.editorial = editorial;
@@ -72,7 +72,7 @@ public class CPeriodico {
         nombre = entrada.nextLine();
         System.out.println("Ingresa el nombre del autor: ");
         autor = entrada.nextLine();
-        System.out.println("Ingresa la Fecha de publicacion: ");
+        System.out.println("Ingresa el tipo de Revista: ");
         editorial = entrada.nextLine();
         System.out.println("Ingresa el precio del documento");
         precio = entrada.nextFloat();

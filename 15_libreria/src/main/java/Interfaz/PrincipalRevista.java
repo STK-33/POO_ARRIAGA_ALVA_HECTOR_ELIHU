@@ -1,13 +1,12 @@
-
 package Interfaz;
 
 
 
-import Controles.ManipularLibros;
+import Controles.ManipularRevista;
 import java.io.*;
 import java.util.*;
 
-public class PrincipalLibro {
+public class PrincipalRevista {
     
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
@@ -17,19 +16,19 @@ public class PrincipalLibro {
         
         //instancia de ManipularLibros
         
-        ManipularLibros listadelibrosobj = new ManipularLibros();
+        ManipularRevista listadelibrosobj = new ManipularRevista();
         
         int opcion;
         
         do{
-            System.out.println("Bienvenido a la Bliblioteca del Oscurantismo");
+            System.out.println("Bienvenido a la Bliblioteca de Revistas");
             System.out.println("---ARRIAGA ALVA HECTOR ELIHU ------ GRUPO 15--- ");
             System.out.println("Ingrese la opcion deseada:");
-            System.out.println("1.- Agregar nuevo Libro");
-            System.out.println("2.- Consultar Libro");
-            System.out.println("3.- Consultar todos los libros");
-            System.out.println("4.- Borrar un libro");
-            System.out.println("5.- Modificar los datos de un libro");
+            System.out.println("1.- Agregar nueva Revista");
+            System.out.println("2.- Consultar Revista");
+            System.out.println("3.- Consultar todos las Revistas");
+            System.out.println("4.- Borrar una Revista");
+            System.out.println("5.- Modificar los datos de una Revista");
             System.out.println("6.- Salir");
             
             opcion = entrada.nextInt();
