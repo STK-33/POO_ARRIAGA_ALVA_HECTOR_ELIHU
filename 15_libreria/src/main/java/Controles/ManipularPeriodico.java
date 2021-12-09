@@ -5,16 +5,13 @@
  */
 package Controles;
 
-/**
- *
- * @author demon
- */
+
 //apuntador -> nivel del acceso a la clase, porque esta separada en paquetes
 import Documentos.CLibro;
 import java.util.*;
 import java.io.*;
 
-public class ManipularLibros implements Serializable{
+public class ManipularPeriodico implements Serializable{
     
     //vamos a crear un metodo para agregar varios libros
     
@@ -24,7 +21,7 @@ public class ManipularLibros implements Serializable{
     
     //un objeto para el archivo de mis libros
     
-    private ArchivoL objetoarchivolibros = new ArchivoL();
+    private ArchivoP objetoarchivoPeriodico = new ArchivoP();
     /*
     esta clase u objeto es la que se va a encargar de poder
     crear y leer los archivos del documento de libro
@@ -34,12 +31,12 @@ public class ManipularLibros implements Serializable{
     //c create, r read, u update, d delete
     
     @SuppressWarnings("Convert2Diamond")
-    public ManipularLibros(){
+    public ManipularPeriodico(){
         //vamos a cargar la instancia de la lista de los libros
         listadelibros = new ArrayList<CLibro>();
         //vamos aplicar una sobrecarga al objeto para mandar
         //a llamara su lectura correspondiente del archivo creado
-        listadelibros = objetoarchivolibros.leer();
+        listadelibros = objetoarchivoPeriodico.leer();
     }
     
     //crud
@@ -53,7 +50,7 @@ public class ManipularLibros implements Serializable{
             objlibro.aceptarDatos();
             //lo agrego al array
             listadelibros.add(objlibro);
-            System.out.println("¿Deseas agregar otro libro?");
+            System.out.println("¿Deseas agregar otro Periodico?");
             resp = entrada.next().charAt(0);
         }
     }
@@ -65,17 +62,17 @@ public class ManipularLibros implements Serializable{
         //si hay libros??
         //y si la lista esta vacia que hago?
         if(listadelibros.isEmpty()){
-            System.out.println("No hay libros agregados");
+            System.out.println("No hay Periodicos agregados");
         }else{
             //no esta vacia
-            System.out.println("Los libros son:");
+            System.out.println("Los Periodicos son:");
             //recorrer la lista de los listos
             for(int i = 0; i < listadelibros.size(); i++){
                 //System.out.println("El ID del Libro" + listadelibros.get(i));
-                System.out.println("Nombre del Libro: " + listadelibros.get(i).getNombre()+"\n");
-                System.out.println("Autor del Libro: " + listadelibros.get(i).getAutor()+"\n");
-                System.out.println("Editorial del Libro: " + listadelibros.get(i).getEditorial()+"\n");
-                System.out.println("Precio del Libro: " + listadelibros.get(i).getPrecio()+"\n");
+                System.out.println("Nombre del Periodico: " + listadelibros.get(i).getNombre()+"\n");
+                System.out.println("Autor del Periodico: " + listadelibros.get(i).getAutor()+"\n");
+                System.out.println("Fecha de publicacion: " + listadelibros.get(i).getEditorial()+"\n");
+                System.out.println("Precio del Periodico: " + listadelibros.get(i).getPrecio()+"\n");
             }
         }
     }
@@ -96,13 +93,13 @@ public class ManipularLibros implements Serializable{
                 pos = i;
                 existe = true;
             }else{
-                System.out.println("Libro no encontrado. Favor de ponerse en contacto con el admin");
+                System.out.println("Periodico no encontrado. Favor de ponerse en contacto con el admin");
             }
         }
         
         if(!existe){
             //porque esta fuera del arreglo o la lista osea no existe
-            System.out.println("No existe registro del Libro");
+            System.out.println("No existe registro del Periodico");
             pos = -1;
         }
         return pos;
@@ -118,17 +115,17 @@ public class ManipularLibros implements Serializable{
         String nombreBuscar;
         Scanner entrada = new Scanner(System.in);
         
-        System.out.println("Ingresa el nombre del libro que desea buscar");
+        System.out.println("Ingresa el nombre del Periodico que desea buscar");
         nombreBuscar = entrada.nextLine();
         
         posbuscar = traePosicion(nombreBuscar);
         
         //visualizo los datos
         
-        System.out.println("Nombre del Libro: " + listadelibros.get(posbuscar).getNombre());
-        System.out.println("Autor del Libro: " + listadelibros.get(posbuscar).getAutor());
-        System.out.println("Editorial del Libro: " + listadelibros.get(posbuscar).getEditorial());
-        System.out.println("Precio del Libro: " + listadelibros.get(posbuscar).getPrecio());
+        System.out.println("Nombre del Periodico: " + listadelibros.get(posbuscar).getNombre());
+        System.out.println("Autor del Periodico: " + listadelibros.get(posbuscar).getAutor());
+        System.out.println("Fecha de publicacion: " + listadelibros.get(posbuscar).getEditorial());
+        System.out.println("Precio del Periodico: " + listadelibros.get(posbuscar).getPrecio());
         
         return posbuscar;
     }
@@ -144,15 +141,15 @@ public class ManipularLibros implements Serializable{
         //verificar que lista de libros no este vacia
         
         if(listadelibros.isEmpty()){
-            System.out.println("No hay libros registrados");
+            System.out.println("No hay Periodicos registrados");
         }else{
-            System.out.println("Ingresa el ID del libro que vas a eliminar: ");
+            System.out.println("Ingresa el ID del Periodico que vas a eliminar: ");
             posborrar = buscar();
             
             if(posborrar < listadelibros.size()){
                 //si esta dentro de la lista
                 listadelibros.remove(posborrar);
-                System.out.println("Libro eliminado");
+                System.out.println("Periodico eliminado");
             }else{
                 //esta afuera del rango
                 System.out.println("Imposible elminar ese registro");
@@ -174,7 +171,7 @@ public class ManipularLibros implements Serializable{
         
         Scanner entrada = new Scanner(System.in);
         
-        System.out.println("Ingresa el nombre del libro que deseas modificar: ");
+        System.out.println("Ingresa el nombre del periodico que deseas modificar: ");
         modificar = entrada.nextLine();
         
         
@@ -182,9 +179,9 @@ public class ManipularLibros implements Serializable{
             posmodificar = traePosicion(modificar);
             
             //ya se obtuvieron los datos
-            System.out.println("¿Que dato deseas modificar del libro?"
+            System.out.println("¿Que dato deseas modificar del Periodico?"
                     + "\n 1.- Autor. "
-                    + "\n 2.- Editorial"
+                    + "\n 2.- Fecha de publicacion"
                     + "\n 3.- Precio"
                     + "\n");
             
@@ -195,7 +192,7 @@ public class ManipularLibros implements Serializable{
                     //autor
                     System.out.println("El autor es: ");
                     System.out.println("Autor: " + listadelibros.get(posmodificar).getAutor());
-                    System.out.println("Ingresa el nuevo actor");
+                    System.out.println("Ingresa el nuevo autor");
                     listadelibros.get(posmodificar).setAutor(entrada.next());
                     System.out.println("El dato a sido modificado");
                     System.out.println("Autor: " + listadelibros.get(posmodificar).getAutor());
@@ -204,12 +201,12 @@ public class ManipularLibros implements Serializable{
                     
                 case 2:
                     //editorial
-                    System.out.println("La editorial es: ");
-                    System.out.println("Editorial: " + listadelibros.get(posmodificar).getEditorial());
-                    System.out.println("Ingresa la nueva editorial");
+                    System.out.println("La Fecha de publicacion es: ");
+                    System.out.println("Fecha de publicacion: " + listadelibros.get(posmodificar).getEditorial());
+                    System.out.println("Ingresa la nueva Fecha");
                     listadelibros.get(posmodificar).setEditorial(entrada.next());
                     System.out.println("El dato a sido modificado");
-                    System.out.println("Editorial: " + listadelibros.get(posmodificar).getEditorial());
+                    System.out.println("Fecha de publicacion: " + listadelibros.get(posmodificar).getEditorial());
                     
                     break;
                 
@@ -249,13 +246,13 @@ public class ManipularLibros implements Serializable{
     }
 
     @SuppressWarnings("NonPublicExported")
-    public ArchivoL getObjetoarchivolibros() {
-        return objetoarchivolibros;
+    public ArchivoP getObjetoarchivolibros() {
+        return objetoarchivoPeriodico;
     }
 
     @SuppressWarnings("NonPublicExported")
-    public void setObjetoarchivolibros(ArchivoL objetoarchivolibros) {
-        this.objetoarchivolibros = objetoarchivolibros;
+    public void setObjetoarchivolibros(ArchivoP objetoarchivolibros) {
+        this.objetoarchivoPeriodico = objetoarchivolibros;
     }
     
     

@@ -9,7 +9,7 @@ package Documentos;
 import java.io.*;
 import java.util.*;
 
-public class CLibro {
+public class CPeriodico {
     
     //las variables de un libro
     
@@ -19,11 +19,11 @@ public class CLibro {
     private float precio;
     
     
-    public CLibro(){
+    public CPeriodico(){
     
     }
 
-    public CLibro(String nombre, String autor, String editorial, float precio) {
+    public CPeriodico(String nombre, String autor, String editorial, float precio) {
         this.nombre = nombre;
         this.autor = autor;
         this.editorial = editorial;
