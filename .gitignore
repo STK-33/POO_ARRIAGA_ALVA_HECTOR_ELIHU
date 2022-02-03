@@ -6,7 +6,36 @@
 /12_arrayPersona/target/
 >>>>>>> b96e399a8119789e6f44937c38deddf998f2990d
 /16_calculadora/target/
+<<<<<<< HEAD
 
 /18_EjemplodeHilos/target/
 /19_CajeroHilos/target/
 /20_Movimiento_Hilos/target/
+=======
+/17-Cine/target/
+/17-Cine/nbproject/
+/17-Cine/build/
+/17-Cine/dist/
+/17-Cine-3/target/
+/18-Caseta/target/
+/PryKualiAtlV1.5.2weno/build/
+/PryKualiAtlV1.5.2weno/dist/
+/PryKualiAtlV1.5.2weno/nbproject/private/
+/ProyectoTabla/build/
+/ProyectoTabla/nbproject/private/
+/banca/build/
+/banca/dist/
+/banca/nbproject/private/
+/Proyecto facturacion e inventario/Facturacion/build/
+/Proyecto facturacion e inventario/Facturacion/dist/
+/Proyecto facturacion e inventario/Facturacion/nbproject/private/
+/proyecto_facturacion/build/
+/proyecto_facturacion/dist/
+/proyecto_facturacion/nbproject/private/
+/proyecto_Caseta/nbproject/private/
+/proyecto_Caseta/build/
+/18_proyecto_Caseta/nbproject/private/
+/18_proyecto_Caseta/build/
+/prueba_jar/target/
+/18_proyecto_Caseta/dist/
+>>>>>>> b53f9ad61dbab24c3df4d2ed66c4fdf085fd8fec
