@@ -1,0 +1,15 @@
+Automovil
+1
+3 
+78
+78
+Automovil
+1
+2 
+90
+78
+Camion
+123456
+2 
+139
+120
