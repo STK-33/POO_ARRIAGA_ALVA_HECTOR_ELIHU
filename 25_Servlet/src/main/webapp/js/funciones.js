@@ -1,0 +1,4 @@
+funciones validar(){
+    
+    
+}
